@@ -23,11 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'l&s*w2e)hzb3!k%9c$_2fg(xf3r&4t(z%!p-i9c^!4*_ens#^8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 if DEBUG:
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ['139.59.21.6']
 else:
-    ALLOWED_HOSTS = ['139.59.21.6',]
+    ALLOWED_HOSTS = ['139.59.21.6']
 
 
 
@@ -90,24 +90,35 @@ CHANNEL_LAYERS = {
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'chatdb',
+        'USER': 'shravan',
+        'PASSWORD': 'Jeeshr@9398',
+        'HOST': 'localhost',
+        'PORT': '',
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'chatdb',
-            'USER': 'shravan',
-            'PASSWORD': 'Jeeshr@9398',
-            'HOST': 'localhost',
-            'PORT': '',
-        }
-    }
+}
+
+# if DEBUG:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#         }
+#     }
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#             'NAME': 'chatdb',
+#             'USER': 'shravan',
+#             'PASSWORD': 'Jeeshr@9398',
+#             'HOST': 'localhost',
+#             'PORT': '',
+#         }
+#     }
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
